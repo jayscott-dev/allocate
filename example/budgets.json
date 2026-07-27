@@ -1,0 +1,42 @@
+{
+    "budgets": [
+        {
+            "budget": "House Budget",
+            "selected": true,
+            "categories": [
+                {
+                    "category": "Mortgage",
+                    "target": 800,
+                    "period": "monthly"
+                },
+                {
+                    "category": "House Fund",
+                    "target": 500,
+                    "period": "monthly"
+                },
+                {
+                    "category": "Car Payment",
+                    "target": 800,
+                    "period": "monthly"
+                },
+                {
+                    "category": "Vacation",
+                    "target": 1000,
+                    "period": "yearly"
+                },
+                {
+                    "category": "Netflix",
+                    "target": 50,
+                    "period": "monthly",
+                    "subscription": true
+                }
+            ]
+        },
+        {
+            "budget": "Demo Budget",
+            "selected": false,
+            "categories": [],
+            "incomes": []
+        }
+    ]
+}
