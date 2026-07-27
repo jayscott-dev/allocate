@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "allocate"
+version = "0.1.0"
+description = "Advisory CLI that allocates a whole-dollar amount across budget accounts by priority."
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+]
+
+[project.scripts]
+allocate = "allocate.cli:app"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
