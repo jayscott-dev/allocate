@@ -6,6 +6,9 @@
 # ///
 
 import argparse
+import allocate.allocator as alloc
+from pathlib import Path
+
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description = "Per run budget allocater")
@@ -16,6 +19,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "-f",
         "--file",
+        required = True,
         help = "budgets file containing category targets",
     )
     return p.parse_args()
@@ -23,6 +27,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     print(f"Total = {args.total}")
+    alloc.allocate_budget(args.total, Path(args.file))
     return 0
 
 if __name__ == "__main__":

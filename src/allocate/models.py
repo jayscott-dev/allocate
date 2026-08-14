@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Optional
+import math
 
 @dataclass
 class Category:
@@ -11,12 +11,24 @@ class Category:
 
     @classmethod
     def from_dict(cls, category: dict) -> Category:
+        target = category["target"]
+        period = category["period"]
+
         return cls (
             name = category["name"],
-            target = category["target"],
-            period = category["period"],
+            target = target,
+            period = period,
             subscription = category.get("subscription", False),
         )
+
+    @property
+    def allocation_amount(self) -> int:
+        if self.period == "yearly":
+            pay_periods = 24
+        else:
+            pay_periods = 2
+
+        return math.ceil(self.target / pay_periods)
     
 @dataclass
 class Budget:
