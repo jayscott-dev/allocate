@@ -13,6 +13,7 @@ def test_category():
     assert category.target == 1000
     assert category.period == "yearly"
     assert not category.subscription
+    assert category.allocation_amount == 42
 
 def test_budget():
     data = {
