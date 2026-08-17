@@ -2,6 +2,7 @@
 
 # /// script
 # dependencies = [
+#   "rich",
 # ]
 # ///
 
@@ -26,8 +27,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    print(f"Total = {args.total}")
-    alloc.allocate_budget(args.total, Path(args.file))
+    alloc.allocate_budget(int(args.total), Path(args.file))
     return 0
 
 if __name__ == "__main__":
