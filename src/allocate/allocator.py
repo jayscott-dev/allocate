@@ -9,5 +9,6 @@ def allocate_budget(total: int, budgets_file: Path):
     budgets = [Budget.from_dict(budget) for budget in raw_data.get("budgets", [])]
 
     for b in budgets:
-        print(b.name)
+        if b.selected:
+            b.display_category_table(total)
     
