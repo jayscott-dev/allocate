@@ -8,6 +8,7 @@
 
 import argparse
 import allocate.allocator as alloc
+from allocate.config import load_config, Settings
 from pathlib import Path
 
 
@@ -26,6 +27,8 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 def main() -> int:
+    settings = load_config(Path("config.toml"))
+    print(settings.my_config)
     args = parse_args()
     alloc.allocate_budget(int(args.total), Path(args.file))
     return 0
