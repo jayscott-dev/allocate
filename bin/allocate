@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+# Expects to be run from the project root directory
+# usage: bin/allocate 1500
+#        bin/allocate 1500 -f example/budgets.json
+./src/allocate.py "$@"
