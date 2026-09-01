@@ -1,6 +1,16 @@
 #!/usr/bin/env zsh
 
 # Expects to be run from the project root directory
-# usage: bin/allocate 1500
-#        bin/allocate 1500 -f example/budgets.json
+show_usage() {
+    echo "\nUsage:\n    bin/allocate <allocation-amount> [-f <path-to-budgets-file>]"
+    echo "\nExamples:"
+    echo "    bin/allocate 1500"
+    echo "    bin/allocate 1500 -f example/budgets.json"
+}
+
+if [ $# -eq 0 ]; then
+    show_usage
+    exit 1
+fi
+
 ./src/allocate.py "$@"
